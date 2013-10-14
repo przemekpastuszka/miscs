@@ -1,0 +1,16 @@
+Type Bits/KeyID    Date       User ID
+pub  1024/AB472C0D 1997/11/02 Witold Paluszynski <witold@ict.pwr.wroc.pl>
+
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: 2.6.3i
+
+mQCNAzRcr8EAAAEEANsf+qcGkxz3Cl9A5iqqzgj8vnqYMGVN+1rvjdc2QLj190rS
+Hi9x0xjSeuw7uiZrgMaxgFSqWpf3OZjEhfa5/IU0Q5sS30NLj2zHtso6Y9CyrkAl
+MBCKsS4kezxbMkiqsfHHvcPrQ1r4MAMPHunKeO9sWjO4MDr7xtJs+uerRywNAAUR
+tCtXaXRvbGQgUGFsdXN6eW5za2kgPHdpdG9sZEBpY3QucHdyLndyb2MucGw+iQCV
+AwUQNFyvwtJs+uerRywNAQEBIAP+IOgz+KSXtp4kp4Fq5QBSJRLpfQrfY2DDE6I6
+72VThT24mI5Qm3j4S4GFORqR0pc0o9zaA1GeweTGiB5TkfziOe0K+lg1ON8aZz2+
+Iq87QmI+IS6OXWllCtBPNvzgvA2qIMxXqdc7zzQ9oNZaQqboPboMRqY9XeeYZCwW
+SDlY0qo=
+=K3Hj
+-----END PGP PUBLIC KEY BLOCK-----

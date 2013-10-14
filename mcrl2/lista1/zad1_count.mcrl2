@@ -1,0 +1,9 @@
+map cnt: Int#List(Int) -> Nat;
+var h, i: Int, t: List(Int);
+eqn cnt(i, []) = 0;
+    i == h -> cnt(i, h |> t) = cnt(i, t) + 1;
+    i != h -> cnt(i, h |> t) = cnt(i, t);
+
+    
+
+    

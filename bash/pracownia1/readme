@@ -1,0 +1,26 @@
+Przemysław Pastuszka
+Przykłady użycia skryptów zad2.sh i zad1.sh z wykorzystaniem plików 13.c i 13.c~
+	Wywyołanie: ./zad2.sh -s 5 -e 8 13.c
+	Wynik:
+		Panno Święta, co jasnej bronisz Częstochowy
+		I w Ostrej świecisz Bramie! Ty, co gród zamkowy
+		Nowogródzki ochraniasz z jego wiernym ludem!
+		Jak mnie dziecko do zdrowia powróciłaś cudem
+		
+	Wywyołanie: cat 13.c | ./zad2.sh -s 5 -e 8
+	Wynik:
+		Panno Święta, co jasnej bronisz Częstochowy
+		I w Ostrej świecisz Bramie! Ty, co gród zamkowy
+		Nowogródzki ochraniasz z jego wiernym ludem!
+		Jak mnie dziecko do zdrowia powróciłaś cudem
+		
+	Wywołanie: ./zad2.sh -s 24
+	Wynik:
+		Na pagórku niewielkim, we brzozowym gaju,
+		Stał dwór szlachecki, z drzewa, lecz podmurowany
+	
+	Wywołanie: ./zad1.sh
+	Wynik:
+		13.c:
+		25a26
+		> Aż wszystek ludziom na wierzch wychodziły gały

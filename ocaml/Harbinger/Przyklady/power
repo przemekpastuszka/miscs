@@ -1,0 +1,24 @@
+//szybkie potęgowanie
+function number power(number base, number exp)
+{
+	if(exp==0)
+	{
+		return 1;
+	}
+	if(exp%2==0)
+	{
+		number temp;
+		temp=power(base,exp/2);
+		return temp*temp;
+	}
+	else
+	{
+		return base*power(base,exp-1);
+	}
+}
+
+function number test()
+{
+	//przykład: 2 do potęgi 10
+	return power(2,10);
+}

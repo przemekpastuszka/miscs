@@ -1,0 +1,18 @@
+sort Phil = struct p1 | p2;
+ChopStick = struct c1 | c2;
+map left, right: Phil -> ChopStick;
+eqn left(p1) = c1;
+    left(p2) = c2;
+    right(p1) = c2; 
+    right(p2) = c1;
+act get, put, up, down, lock, free: Phil # ChopStick;
+    think, eat: Phil;
+proc P_Phil(p: Phil) =
+       (get(p,red(p)).get(p,black(p))).eat(p) .
+       %(put(p,red(p)).put(p,black(p)) + put(p,black(p)).put(p,red(p))).think(p). P_Phil(p);
+       (put(p,red(p)).put(p,black(p)) + put(p,black(p)).put(p,red(p))).think(p). P_Phil(p);
+     P_ChopStick(f: ChopStick) = sum p:Phil. up(p,f).down(p,f).P_ChopStick(f);
+init allow( {lock, free, eat, think},
+     comm( { get|up->lock, put|down->free },
+     P_ChopStick(c1) || P_ChopStick(c2) || P_Phil(p1) || P_Phil(p2)
+));

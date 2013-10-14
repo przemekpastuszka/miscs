@@ -1,0 +1,32 @@
+sort A=Int;
+     BTree = struct Tip | Node(BTree,A,BTree);
+
+map preorder: BTree -> List(A);
+    preorderTmp: BTree#List(A) -> List(A);
+
+var node, left, right : BTree, i : A, acc : List(A);
+eqn preorder(node) = preorderTmp(node, []);
+    preorderTmp(Tip, acc) = acc;
+    preorderTmp(Node(left, i, right), acc) = i |> preorderTmp(left, preorderTmp(right, acc));
+
+map smallBT : BTree;
+eqn smallBT = Node(Node(Tip,2,Node(Tip,3,Tip)),1,Tip);
+
+map mapToValues: List(BTree)#List(A) -> List(A);
+    mapToChildren: List(BTree) -> List(BTree);
+    breadthTmp: List(BTree) -> List(A);
+    breadth: BTree -> List(A);
+
+var l : List(BTree), node, left, right : BTree, i : A, acc : List(A);
+eqn mapToValues([], acc) = acc;
+    mapToValues(Tip |> l, acc) = mapToValues(l, acc);
+    mapToValues(Node(left, i, right) |> l, acc) = i |> mapToValues(l, acc);
+ 
+    mapToChildren([]) = [];
+    mapToChildren(Tip |> l) = mapToChildren(l);
+    mapToChildren(Node(left, i, right) |> l) = left |> right |> mapToChildren(l);
+
+    breadthTmp([]) = [];
+    breadthTmp(node |> l) = mapToValues(node |> l, breadthTmp(mapToChildren(node |> l)));
+    
+    breadth(node) = breadthTmp([node]);

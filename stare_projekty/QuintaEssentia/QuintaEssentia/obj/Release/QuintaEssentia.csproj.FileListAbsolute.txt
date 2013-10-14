@@ -1,0 +1,16 @@
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\bin\Release\QuintaEssentia.exe.config
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\bin\Release\QuintaEssentia.exe
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\bin\Release\QuintaEssentia.pdb
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\obj\Release\QuintaEssentia.Properties.Resources.resources
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\obj\Release\QuintaEssentia.csproj.GenerateResource.Cache
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\obj\Release\QuintaEssentia.exe
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\obj\Release\QuintaEssentia.pdb
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\obj\Release\QuintaEssentia.FormAtLoad.resources
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\obj\Release\QuintaEssentia.CameraForm.resources
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\obj\Release\QuintaEssentia.EditorForm.resources
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\obj\Release\QuintaEssentia.LightForm.resources
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\obj\Release\QuintaEssentia.MainTerrainForm.resources
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\obj\Release\QuintaEssentia.TerrainForm.resources
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\obj\Release\QuintaEssentia.TerrainPicker.resources
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\obj\Release\QuintaEssentia.NormalForm.resources

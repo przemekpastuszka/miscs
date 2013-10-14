@@ -1,0 +1,12 @@
+sort Stack = struct empty | push(Pos, Stack);
+map  isEmpty: Stack -> Bool;       
+     pop:   Stack -> Stack;      
+     top:   Stack -> Pos;
+var  s: Stack;
+     x: Pos;
+eqn  isEmpty(empty) = true;
+     isEmpty(push(x, s)) = false;
+     pop(empty) = empty;
+     pop(push(x, s)) = s;
+     %top(empty) = top(empty);
+     top(push(x, s)) = x;

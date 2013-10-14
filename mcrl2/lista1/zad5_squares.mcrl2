@@ -1,0 +1,2 @@
+map squares:Set(Pos);
+eqn squares={x:Pos | exists y:Pos, z:Pos . x == y*y + z*z};

@@ -1,0 +1,4 @@
+act a, b, c, d, e, f;
+proc L = a.b;
+     R = c.d;
+init block({d}, comm({a|c -> e, b|d -> f}, L || R));

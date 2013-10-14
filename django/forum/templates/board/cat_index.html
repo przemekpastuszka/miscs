@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block navigation %}
+
+<table width="100%" cellspacing="2" border="0" align="center" cellpadding="2">
+    <tr>
+    <td align="left" valign="middle"><span class="nav"><a href="{% url board.views.index %}" class="nav">Forum</a> &raquo;&nbsp;<a href="{% url board.views.cat_index category.id %}" class="nav">{{ category.name }}</a></span></td>
+    <td align="right" valign="middle" nowrap="nowrap"><span class="nav">Strona <b>{{ topics.number }}</b> z <b>{{ topics.paginator.num_pages }}</b>&nbsp;&nbsp;<div class="pagination">
+    {% if topics.has_previous %}
+        <a href="?page={{ topics.previous_page_number }}&ordering={{ ordering }}" title="Wstecz">&nbsp;&laquo;&nbsp;</a>
+    {% endif %}
+    {% if topics.has_next %}
+        <a href="?page={{ topics.next_page_number }}&ordering={{ ordering }}" title="Dalej">&nbsp;&raquo;&nbsp;</a>
+    {% endif %}
+    </div></span></td>
+    </tr>
+    <tr>
+    <td align="left" valign="middle"><a href="{% url board.views.new_topic category.id %}">Napisz nowy temat</a></td>
+    <td align="right" nowrap="nowrap">&nbsp;
+    </td>
+
+</tr>
+</table>
+
+{% endblock %}
+
+{% block content %}
+
+    <tr>
+        <th colspan="3" align="center" class="thCornerL" style="height: 24px;" nowrap="nowrap">&nbsp;Tematy&nbsp;</th>
+        <th width="50" align="center" class="thTop" style="height: 24px;" nowrap="nowrap"><a href = "?ordering=-posts"><font color = yellow>&nbsp;Odpowiedzi&nbsp;</font></a></th>
+        <th width="100" align="center" class="thTop" style="height: 24px;" nowrap="nowrap">&nbsp;Autor&nbsp;</th>
+        <th width="50" align="center" class="thTop" style="height: 24px;" nowrap="nowrap"><a href = "?ordering=-visits"><font color = yellow>&nbsp;Wyświetleń&nbsp;</font></a></th>
+
+        <th width="150" align="center" class="thCornerR" style="height: 24px;" nowrap="nowrap"><a href = "?ordering=-last_post"><font color = yellow>&nbsp;Ostatni post&nbsp;</font></a></th>
+    </tr>
+
+    
+    
+    {% for topic in topics.object_list %}
+    <tr>
+        <td class="row1" align="center" valign="middle" width="20"></td>
+        <td class="row1" width="100%" ><span class="topictitle"><a href="{% url board.views.topic topic.id %}" class="topictitle">{{ topic.name }}</a></span><span class="gensmall"></span><span class="gensmall"></span><span class="gensmall"><br /></span></td>
+        <td class="row1" align="right"></td>
+        <td class="row2" align="center" valign="middle"><span class="postdetails">{{ topic.posts }}</span></td>
+
+        <td class="row1" align="center" valign="middle"><span class="name"><a href="{% url board.views.users topic.user.id %}" class="genmed">{{ topic.user.username }}</a></span></td>
+        <td class="row2" align="center" valign="middle"><span class="postdetails">{{ topic.visits }}</span></td>
+        <td class="row1" align="center" valign="middle" nowrap="nowrap"><span class="postdetails">{{ topic.last_post }}<br /></span></td>
+    </tr>
+    {% endfor %}
+{% endblock %}

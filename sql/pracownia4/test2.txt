@@ -1,0 +1,12 @@
+insert into pokoj values(1, 3, true, true, 'balkon');
+insert into pokoj values(2, 3, true, true, 'balkon');
+insert into pokoj values(3, 3, true, true, 'balkon');
+
+insert into gosc(imie, nazwisko, rodzaj_kontakt, kontakt)
+	values('Teofil', 'Kalfas', 'm', 'haaa');
+insert into gosc(imie, nazwisko, rodzaj_kontakt, kontakt)
+	values('Pierdziel', 'Hggg', 't', '666');
+	
+insert into meldunek(gid, numer, dataOd, dataDo)
+	values(1, 1, '23-07-2009', '05-06-2010');
+insert into rezerwacja values (2, 2, '23-07-2009', '10-07-2010');

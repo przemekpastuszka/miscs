@@ -1,0 +1,67 @@
+let true = 1 = 1;
+let false = not true;
+let add = \x -> \y -> x+y;
+let mul = \x -> \y -> x*y;
+let even = \x -> x mod 2 = 0;
+let odd = \x -> x mod 2 = 1;
+let id = \x -> x;
+let compose = \f -> \g -> (\x -> f (g x));
+let makepair = \x -> \y -> (\z -> if z then x else y);
+let fst = \pair -> pair true;
+let snd = \pair -> pair false;
+let Just = \val -> makepair true val;
+let Nothing = makepair false false;
+let isJust = fst;
+let isNothing = compose not isJust;
+let getJust = \maybe -> if isJust maybe then snd maybe else head [];
+let enum = \from -> \to ->
+        if from > to then [] else from : enum (from+1) to;
+let length =
+        let aux = \n -> \xs ->
+            if null xs then n else aux (n+1) (tail xs);
+        aux 0;
+let reverse =
+        let aux = \ys -> \xs ->
+            if null xs then ys else aux (head xs : ys) (tail xs);
+        aux [];
+let map = \f -> \xs ->
+        if null xs then [] else f (head xs) : map f (tail xs);
+let filter = \f -> \xs ->
+        if null xs then []
+        else if f (head xs) then head xs : filter f (tail xs)
+        else filter f (tail xs);
+let foldl = \f -> \a -> \as ->
+        if null as then a else foldl f (f a (head as)) (tail as);
+let concat =
+        foldl (\x -> \y -> x ++ y) [];
+let product = foldl mul 1;
+let sum = foldl add 0;
+let unfoldr = \fun -> \val ->
+        let x = fun val;
+        if isNothing x
+        then []
+        else let y = getJust x; fst y : unfoldr fun (snd y);
+let iterate = \n -> \f ->
+        if n = 0 then id else compose f (iterate (n-1) f);
+let sortBy = \cmp -> \xs ->
+        if null xs then []
+        else let pivot = head xs;
+             let body = tail xs;
+             sortBy cmp (filter (\x -> cmp x pivot) body) ++
+             pivot :
+             sortBy cmp (filter (\x -> not (cmp x pivot)) body);
+let sort = sortBy (\x -> \y -> x < y);
+let int2string =
+        let cutDigit = \x ->
+            if x = 0 then Nothing else Just (makepair (x mod 10) (x div 10));
+        compose reverse (unfoldr cutDigit);
+let fib = \m -> \k ->
+        let step = \s ->
+            let s' = fst s;
+            let s'' = snd s;
+            makepair s'' ((s'+s'') mod m);
+        fst ((iterate k step) (makepair 0 1));
+let countingFunctions =
+    map (\x -> compose length (filter (\z -> z = x))) (enum (0-10) 10);
+let ten = enum 0 5;
+map (\f -> f ten) countingFunctions

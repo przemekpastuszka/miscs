@@ -1,0 +1,38 @@
+% filozofów i pałeczki oznaczamy liczbami naturalnymi od 1 do N
+sort Phil = Nat;
+  ChopStick = Nat;
+
+map N: Nat;
+eqn N = 3;
+
+map black: Phil -> ChopStick;
+var p: Phil;
+
+% jeśli filozofów i pałeczki będziemy rozpatrywać zgodnie z ruchem wskazówek zegara to
+% dla filozofów na parzystych miejscach (p mod 2 == 1) czarna pałeczka to pałeczka kolejna
+eqn p mod 2 == 1 -> black(p) = p;
+    
+    p mod 2 == 0 -> black(p) = abs(p - 1);
+
+map red: Phil -> ChopStick;
+var p: Phil;
+eqn p mod 2 == 1 -> red(p) = abs(p - 1);
+    p == 1 -> red(p) = N;
+    p mod 2 == 0 -> red(p) = p;
+
+
+act empty;
+    get, put, up, down, lock, free: Phil # ChopStick;
+    think, eat: Phil;
+proc P_Phil(p: Phil) =
+       (get(p,red(p)).get(p,black(p))).eat(p) .
+       (put(p,red(p)).put(p,black(p))).think(p). P_Phil(p);
+     RunManyPhil(n: Nat) = (n == N) -> empty.(P_Phil(n) || RunManyPhil(n + 1));  % startuje procesy filozofów
+     P_ChopStick(f: ChopStick) = sum p:Phil. up(p,f).down(p,f).P_ChopStick(f);
+     RunManyChopsticks(n: Nat) = (n == N) -> empty.(P_ChopStick(n) || RunManyChopsticks(n + 1));  % startuje procesy pałeczek
+
+init allow( {lock, free, eat, think},
+     comm( { get|up->lock, put|down->free },
+     % RunManyPhil(1) || RunManyChopsticks(1)  % odkomentowanie tej linijki i zakomentowanie poniższej spowoduje błąd kompilatora mcrl22lps
+     P_Phil(1) || P_Phil(2) || P_Phil(3) || P_ChopStick(1) || P_ChopStick(2) || P_ChopStick(3)
+));

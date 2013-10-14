@@ -1,0 +1,287 @@
+Sphere Sp1
+{
+	origin 0,0,16;
+	radius 3;
+}
+
+Sphere Sp2
+{
+	origin 8,0,12;
+	radius 3;
+}
+
+Sphere Sp3
+{
+	origin -8,0,14;
+	radius 3;
+}
+
+Sphere Sp4
+{
+	origin 0,4,23;
+	radius 5;
+}
+
+Plane P1
+{
+	normal 0,0,-1;
+	distance 28;
+}
+
+Plane P2
+{
+	normal -1,0,0;
+	distance 15;
+}
+
+Plane P3
+{
+	normal 1,0,0;
+	distance 15;
+}
+
+Plane P4
+{
+	normal 0,1,0;
+	distance 15;
+}
+
+Plane P5
+{
+	normal 0,-1,0;
+	distance 15;
+}
+
+Phong Ph1
+{
+	color 1,0,0;
+	specColor 0.6,0.6,0.6;
+	diffuse 0.9;
+	reflectance 0.1;
+}
+
+Phong Ph2
+{
+	color 0,1,0;
+	specColor 0.6,0.6,0.6;
+	diffuse 0.9;
+	reflectance 0.1;
+}
+
+Phong Ph3
+{
+	color 0,0,1;
+	specColor 0.6,0.6,0.6;
+	diffuse 0.9;
+	reflectance 0.1;
+}
+
+Phong Ph4
+{
+	color 1,1,0;
+	specColor 0.6,0.6,0.6;
+	diffuse 0.9;
+	reflectance 0.1;
+}
+
+Phong Ph5
+{
+	color 1,0,0;
+	specColor 0,0,0;
+	diffuse 1;
+	reflectance 0;
+}
+
+Phong Ph6
+{
+	color 0,1,0;
+	specColor 0,0,0;
+	diffuse 1;
+	reflectance 0;
+}
+
+Phong Ph7
+{
+	color 0,0,1;
+	specColor 0,0,0;
+	diffuse 1;
+	reflectance 0;
+}
+
+Phong Ph8
+{
+	color 1,0,1;
+	specColor 0,0,0;
+	diffuse 1;
+	reflectance 0;
+}
+
+Phong Ph9
+{
+	color 0,1,1;
+	specColor 0,0,0;
+	diffuse 1;
+	reflectance 0;
+}
+
+Simple O1
+{
+	input primitive Sp1;
+	input material Ph1;
+}
+
+Simple O2
+{
+	input primitive Sp2;
+	input material Ph2;
+}
+
+Simple O3
+{
+	input primitive Sp3;
+	input material Ph3;
+}
+
+Simple O4
+{
+	input primitive Sp4;
+	input material Ph4;
+}
+
+Simple O5
+{
+	input primitive P1;
+	input material Ph5;
+}
+
+Simple O6
+{
+	input primitive P2;
+	input material Ph6;
+}
+
+Simple O7
+{
+	input primitive P3;
+	input material Ph7;
+}
+
+Simple O8
+{
+	input primitive P4;
+	input material Ph8;
+}
+
+Simple O9
+{
+	input primitive P5;
+	input material Ph9;
+}
+
+Sphere SAL1
+{
+	origin 0,-10,10;
+	radius 0.5;
+}
+
+Sphere SAL2
+{
+	origin 4,10,10;
+	radius 0.5;
+}
+
+Sphere SAL3
+{
+	origin 0,10,10;
+	radius 0.5;
+}
+
+Sphere SAL4
+{
+	origin -4,10,10;
+	radius 0.5;
+}
+
+AreaLight A1
+{
+	color 50,50,50;
+	input primitive SAL1;
+	points 64;
+}
+
+AreaLight A2
+{
+	color 50,50,50;
+	input primitive SAL2;
+	points 64;
+}
+
+AreaLight A3
+{
+	color 60,60,60;
+	input primitive SAL3;
+	points 64;
+}
+
+AreaLight A4
+{
+	color 50,50,50;
+	input primitive SAL4;
+	points 64;
+}
+
+Scene Sc1
+{
+	size 100,100,100;
+	input object1 O1;
+	input object2 O2;
+	input object3 O3;
+	input object4 O4;
+	input object5 O5;
+	input object6 O6;
+	input object7 O7;
+	input object8 O8;
+	input object9 O9;
+	input object10 A1;
+	input object11 A2;
+	input object12 A3;
+	input object13 A4;
+}
+
+ConicCam CC1
+{
+	width 640;
+	height 480;
+}
+
+RayTracing RT1
+{
+	input scene Sc1;
+	input camera CC1;
+	width 640;
+	height 480;
+}
+
+ImageSaver IS1
+{
+	input buffer RT1;
+	filename renderHLT;
+	format hlt;
+}
+
+DepthAntialiasing AA
+{
+	input buffer RT1;
+}
+
+AdvToneMap HDR
+{
+	input buffer AA;
+}
+
+ImageSaver IS2
+{
+	input buffer HDR;
+	filename renderBMP;
+	format bmp;
+}

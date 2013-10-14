@@ -1,0 +1,72 @@
+/*
+* Author: Przemysław Pastuszka
+* Institute of Computer Science, Wrocław University, Poland
+*/
+
+HadoopDB Catalog
+
+HadoopDB Catalog I propose is capable of removing existing data, loading data
+from external source and answering questions about data stored in the system. It will
+serve both as system frontend for a client and as source of informations for SMS Planner and
+Database Connector.
+
+I provide centralized solution - almost all logic is done on one machine with DBMS installed.
+System nodes will run only small programs - their only task is to send every X (mili)seconds 
+a 'heartbeat' message to Catalog machine. It will assure, that Catalog has full information
+about available nodes. Source code of those programs is not included.
+
+I've decided to replace XML file with DBMS for its flexibility, speed and safety.
+I advise using PostgreSQL, but any other will also do.
+It's worth mentioning, that client will only interact with Java objects - no SQL needed.
+For even more speed those objects are lazy - they exchange data with DBMS only
+when it's really needed. On the other hand, memory content is always synchronized with
+DBMS, so the Catalog data is safe.
+
+When Catalog is used for the first time it should create database schema in DBMS.
+Here's the draft how it should look like:
+
+create table Node(
+    node_id varchar primary key,
+    node_passwd varchar,
+    node_user varchar,
+    node_url varchar,
+    node_address varchar
+);
+
+create table Attribute(
+    att_name varchar primary key,
+    att_foreign_key varchar,
+    att_type varchar,
+    att_primary_key boolean,
+    att_properties text,
+    relation_id references Relation
+);
+
+create table Relation(
+    relation_id varchar primary key,
+    relation_partitioning_attribute varchar references Attribute,
+    relation_size bigint,
+    relation_nr_of_rows bigint,
+);
+
+create table Partition(
+    partition_id varchar primary key,
+    partition_partitoning_val text,
+    partition_size bigint,
+    partition_nr_of_rows bigint,
+    relation_id references Relation
+);
+
+create table Replica(
+    replica_id serial primary key,
+    node_id references Node,
+    partition_id references Partition
+);
+
+
+It is easy to extend Catalog to store additional informations.
+
+--
+I'm aware of fact, that all files I provide should be gathered into one package
+hadoopdb.catalog and access control to some class members should be restricted,
+but that's not relevant to presented idea, so I've skipped it.

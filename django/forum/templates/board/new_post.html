@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block navigation %}
+
+<table width="100%" cellspacing="2" border="0" align="center" cellpadding="2">
+    <tr>
+    <td align="left" valign="middle"><span class="nav"><a href="{% url board.views.index %}" class="nav">Forum</a> &raquo;&nbsp;<a href="{% url board.views.cat_index topic.category.id %}" class="nav">{{ topic.category.name }}</a>
+    &raquo;&nbsp;<a href="{% url board.views.topic topic.id %}" class="nav">{{ topic.name }}</a>
+    &raquo;&nbsp;<a href="{% url board.views.new_post topic.id %}" class="nav">Dodaj odpowiedź</a></span></td>
+    </tr>
+    <tr>
+    <td align="right" nowrap="nowrap">&nbsp;
+    </td>
+
+</tr>
+</table>
+
+{% endblock %}
+
+{% block content %}
+    <form action="{% url board.views.new_post topic.id %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit" />
+    </form>
+{% endblock %}

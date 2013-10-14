@@ -1,0 +1,46 @@
+zad 1.7
+    Zostanie przydzielony do klasy omega1, bo:
+    P(x | omega1) * P(omega1) > P(x | omega2) * P(omega2)
+    0.0839 * 1/3 > 0.377 * 2/3
+    0.028 > 0.0251
+
+zad 2.1
+    plik: randNormal.m
+
+    Przykład użycia:
+    randNormal(3, 2, 0.9)
+
+zad 2.2
+    plik: randNormalDimensional.m
+
+    Przykład użycia:
+    randNormalDimensional(2, [1 3 5], eye(3))
+
+zad 2.3
+    plik: randomClasses.m
+
+    randomClasses(N, ms, Ss, probs), gdzie
+    N - liczba próbek do wygenerowania
+    ms - lista d-wymiarowych wektorów wariancji
+    Ss - lista macierzy kowariancji
+    probs - kolejne prawdopodobieństwa P(omega_i)
+
+    Algorytm:
+    - powtarzaj N razy:
+        - wylosuj klasę omega_i (z prawd. P(omega_i))
+        - wylosuj próbkę z rozkładem N(ms{i}, Ss{i})
+
+    Przykład użycia:
+    c = randomClasses(2, {[2 8] [3 1]}, {eye(2) eye(2)}, [1/3 2/3])
+    c{1} - macierz 2x2 (dwie dwuwymiarowe próbki)
+    c{2} - wektor 2x1 (przyporządkowanie próbek do konkretnych klas omega)
+
+zad 2.4
+    Wykonałem dla przypadku d=1
+
+    plik: make2Dplot.m
+
+    Przykład użycia:
+    c = randomClasses(300, {[4] [6] [2] [8]}, {eye(1) eye(1) eye(1) eye(1)}, [0.2 0.2 0.2 0.4])
+    make2Dplot(c{1}, c{2}, [4 6 2 8])
+

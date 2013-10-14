@@ -1,0 +1,129 @@
+revoke select, insert on zajetosc_pokoi from gosc;
+revoke select on pokoj from gosc;
+drop role gosc;
+drop view zajetosc_pokoi;
+drop domain rodzaj_kontakt cascade;
+drop domain tv cascade;
+drop domain lodowka cascade;
+drop domain balkon_taras cascade;
+drop table powiadomienia cascade;
+drop table meldunek cascade;
+drop table rezerwacja cascade;
+drop table pokoj cascade;
+drop table gosc cascade;
+
+
+/*create domain rodzaj_kontakt as char
+	check (value in ('t', 'm'))
+	not null;
+create domain tv as bool not null;
+create domain lodowka as bool not null;
+create domain balkon_taras as char(6)
+	check (value in ('balkon', 'taras'));
+
+
+create table gosc
+(
+	gid serial primary key,
+	imie varchar(15) not null,
+	nazwisko varchar(25) not null,
+	dataUr date,
+	rodzaj_kontakt rodzaj_kontakt,
+	kontakt varchar(35) not null,
+	bonus text
+);
+
+create table pokoj
+(
+	numer int not null primary key,
+	liczba_miejsc int not null,
+	tv tv,
+	lodowka lodowka,
+	balkon_taras balkon_taras
+);
+
+create table meldunek
+(
+	gid int not null,
+	numer int not null,
+	dataOd date not null,
+	dataDo date not null,
+	constraint meldunek_pkey primary key (gid, dataOd),
+	constraint meldunek_u unique(gid, numer, dataOd)
+);
+alter table meldunek add constraint gid_fkey
+	foreign key(gid) references gosc
+	on delete set default;
+alter table meldunek add constraint numer_fkey
+	foreign key(numer) references pokoj
+	on delete set null;
+
+create table rezerwacja
+(
+	gid int not null,
+	numer int,
+	dataOd date not null,
+	dataDo date not null,
+	constraint rezerwacja_pkey primary key (gid, dataOd),
+	constraint rezerwacja_u unique(gid, numer, dataOd)
+);
+alter table rezerwacja add constraint gid_fkey
+	foreign key(gid) references gosc
+	on delete cascade;
+alter table rezerwacja add constraint numer_fkey
+	foreign key(numer) references pokoj
+	on delete set null;
+
+create table powiadomienia
+(
+	gid int not null,
+	dataPow timestamp not null,
+	notatka text not null,
+	przekazano bool not null,
+	constraint powiadomienia_pkey primary key (gid, dataPow)
+);
+alter table powiadomienia add constraint gid_fkey
+	foreign key(gid) references gosc
+	on delete cascade;
+
+create role gosc;
+grant select on pokoj to gosc;
+
+create view zajetosc_pokoi (numer, zajety, zarezerwowany_od, zarezerwowany_do, gid) as
+(
+	select numer,
+		case
+			when pokoj.numer in (select numer from meldunek where dataDo > now()) then true
+			else false
+		end,
+		rezerwacja.dataOd, rezerwacja.dataDo, 0  from
+	pokoj
+	left join rezerwacja using (numer)
+	where dataDo > now() or dataDo is null
+);
+grant select, insert on zajetosc_pokoi to gosc;
+
+create rule gosc_rezerwuj as
+	on insert to zajetosc_pokoi
+	where extract (day from (new.zarezerwowany_od - now())) >= 7
+	do insert into rezerwacja values(new.gid, new.numer, new.zarezerwowany_od, new.zarezerwowany_do);
+create rule gosc_rezerwuj2 as
+	on insert to zajetosc_pokoi
+	do instead nothing;
+	
+create rule usun_rezerwacje as
+	on delete to rezerwacja
+	where old.numer in (select numer from meldunek where dataDo > now())
+	do also
+		insert into powiadomienia values(old.gid, now(), 'Pokój w podanym terminie jest zajęty', false);
+create rule usun_rezerwacje2 as
+	on delete to rezerwacja
+	where old.numer not in (select numer from meldunek where dataDo > now())
+	do also
+	(
+		insert into powiadomienia values(old.gid, now(), 'Pokój zarezerwowany', false);
+		insert into meldunek values(old.gid, old.numer, old.dataOd, old.dataDo)
+	);
+create rule usun_rezerwacje4 as
+	on delete to rezerwacja
+	do instead nothing;*/

@@ -1,0 +1,39 @@
+C:\Users\Przemo\AppData\Local\Temporary Projects\QuintaEssentia\bin\Debug\QuintaEssentia.exe
+C:\Users\Przemo\AppData\Local\Temporary Projects\QuintaEssentia\bin\Debug\QuintaEssentia.pdb
+C:\Users\Przemo\AppData\Local\Temporary Projects\QuintaEssentia\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Przemo\AppData\Local\Temporary Projects\QuintaEssentia\obj\Debug\QuintaEssentia.Properties.Resources.resources
+C:\Users\Przemo\AppData\Local\Temporary Projects\QuintaEssentia\obj\Debug\QuintaEssentia.csproj.GenerateResource.Cache
+C:\Users\Przemo\AppData\Local\Temporary Projects\QuintaEssentia\obj\Debug\QuintaEssentia.exe
+C:\Users\Przemo\AppData\Local\Temporary Projects\QuintaEssentia\obj\Debug\QuintaEssentia.pdb
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\obj\Debug\QuintaEssentia.exe
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\obj\Debug\QuintaEssentia.pdb
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\bin\Debug\QuintaEssentia.exe
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\bin\Debug\QuintaEssentia.pdb
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\obj\Debug\QuintaEssentia.Properties.Resources.resources
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\obj\Debug\QuintaEssentia.csproj.GenerateResource.Cache
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\bin\Debug\QuintaEssentia.exe.config
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\obj\Debug\QuintaEssentia.FormAtLoad.resources
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\obj\Debug\QuintaEssentia.EditorForm.resources
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\obj\Debug\QuintaEssentia.LightForm.resources
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\obj\Debug\QuintaEssentia.CameraForm.resources
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\obj\Debug\QuintaEssentia.TerrainForm.resources
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\obj\Debug\QuintaEssentia.MainTerrainForm.resources
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\obj\Debug\QuintaEssentia.TerrainPicker.resources
+C:\Users\Przemo\Documents\Visual Studio 2008\Projects\QuintaEssentia\QuintaEssentia\obj\Debug\QuintaEssentia.NormalForm.resources
+C:\Documenty\QuintaEssentia\QuintaEssentia\bin\Debug\QuintaEssentia.exe.config
+C:\Documenty\QuintaEssentia\QuintaEssentia\obj\Debug\QuintaEssentia.exe
+C:\Documenty\QuintaEssentia\QuintaEssentia\obj\Debug\QuintaEssentia.pdb
+C:\Documenty\QuintaEssentia\QuintaEssentia\bin\Debug\QuintaEssentia.exe
+C:\Documenty\QuintaEssentia\QuintaEssentia\bin\Debug\QuintaEssentia.pdb
+C:\Documenty\QuintaEssentia\QuintaEssentia\obj\Debug\ResolveAssemblyReference.cache
+C:\Documenty\QuintaEssentia\QuintaEssentia\obj\Debug\QuintaEssentia.CameraForm.resources
+C:\Documenty\QuintaEssentia\QuintaEssentia\obj\Debug\QuintaEssentia.EditorForm.resources
+C:\Documenty\QuintaEssentia\QuintaEssentia\obj\Debug\QuintaEssentia.FormAtLoad.resources
+C:\Documenty\QuintaEssentia\QuintaEssentia\obj\Debug\QuintaEssentia.LightForm.resources
+C:\Documenty\QuintaEssentia\QuintaEssentia\obj\Debug\QuintaEssentia.MainTerrainForm.resources
+C:\Documenty\QuintaEssentia\QuintaEssentia\obj\Debug\QuintaEssentia.TerrainForm.resources
+C:\Documenty\QuintaEssentia\QuintaEssentia\obj\Debug\QuintaEssentia.TerrainPicker.resources
+C:\Documenty\QuintaEssentia\QuintaEssentia\obj\Debug\QuintaEssentia.NormalForm.resources
+C:\Documenty\QuintaEssentia\QuintaEssentia\obj\Debug\QuintaEssentia.Properties.Resources.resources
+C:\Documenty\QuintaEssentia\QuintaEssentia\obj\Debug\QuintaEssentia.csproj.GenerateResource.Cache

@@ -1,0 +1,41 @@
+struct Node
+{
+	text value;
+	bool isLeft,isRight;
+	struct Node left,right;
+}
+
+//DFS - preorder
+function number DFS(ref struct Node T)
+{
+	print(T.value+" "); //należy dodać odpowiednią funkcję print do środowiska
+	if(T.isLeft)
+	{
+		DFS(T.left);
+	}
+	if(T.isRight)
+	{
+		DFS(T.right);
+	}
+	return 0;
+}
+
+function number test()
+{
+	//tworzymy losowe drzewo
+	struct Node t;
+	t.value="Exegi";
+	t.isLeft=true;
+	t.isRight=true;
+	t.left.value="monumentum";
+	t.left.isLeft=false;
+	t.left.isRight=false;
+	t.right.value="aere";
+	t.right.isRight=false;
+	t.right.isLeft=true;
+	t.right.left.value="perennius.";
+	t.right.left.isLeft=false;
+	t.right.left.isRight=false;
+	DFS(t);
+	return 0;
+}

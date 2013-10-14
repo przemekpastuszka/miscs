@@ -1,0 +1,20 @@
+QUINTA ESSENTIA ENGINE ver. 0.02
+Created by Przemys³aw Pastuszka
+--------------------------------------
+
+
+0.02, codename: "OROGENY" (8-08-2009)
+-------------------------
+-editor tool!
+	-terrain modelling
+	-global light preferences
+	-camera editor
+-terrain picking
+-terrain height preloaded on CPU (I think it is faster than using GPU displacement mapping in first version)
+-loading/saving levels
+-lang files
+
+
+0.01, codename: "GENESIS" (28-07-2009)
+-------------------------
+-first working version

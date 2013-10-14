@@ -1,0 +1,15 @@
+let generate = \x -> \y ->
+	if y < x then []
+	else y : (generate x (y - 1));
+let fold = \f -> \a -> \ls ->
+	let helper =  \acc -> \l ->
+		if null l then acc
+		else helper (f acc (head l)) (tail l);
+	helper a ls;
+let map = \ f -> \ xs ->  if null xs then [] else f (head xs) : map f (tail xs);
+let reverse = 
+	let aux = \ ys -> \ xs ->  if null xs then ys else aux (head xs : ys) (tail xs);
+	aux []; 
+let fac = \x -> fold (\x -> \y -> x * y) 1 (map (\x -> x) (reverse (generate 1 x)));
+fac 9
+

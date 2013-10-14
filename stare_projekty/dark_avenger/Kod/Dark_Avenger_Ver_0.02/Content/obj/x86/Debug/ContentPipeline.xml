@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>player.png</Source>
+      <Name>player</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\player.xnb</Output>
+      <Time>2008-11-05T15:55:26.6042202+01:00</Time>
+    </Item>
+    <Item>
+      <Source>end.png</Source>
+      <Name>end</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\end.xnb</Output>
+      <Time>2008-11-05T16:21:35.5702202+01:00</Time>
+    </Item>
+    <Item>
+      <Source>heart.png</Source>
+      <Name>heart</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\heart.xnb</Output>
+      <Time>2008-11-05T16:58:01.517+01:00</Time>
+    </Item>
+    <Item>
+      <Source>health.png</Source>
+      <Name>health</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\health.xnb</Output>
+      <Time>2008-11-05T20:33:24.7051939+01:00</Time>
+    </Item>
+    <Item>
+      <Source>no_health.png</Source>
+      <Name>no_health</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\no_health.xnb</Output>
+      <Time>2008-11-05T20:33:30.6019939+01:00</Time>
+    </Item>
+    <Item>
+      <Source>shield.png</Source>
+      <Name>shield</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\shield.xnb</Output>
+      <Time>2008-11-05T17:49:07.684+01:00</Time>
+    </Item>
+    <Item>
+      <Source>shield_bar.png</Source>
+      <Name>shield_bar</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\shield_bar.xnb</Output>
+      <Time>2008-11-05T20:35:27.5929939+01:00</Time>
+    </Item>
+    <Item>
+      <Source>sight.png</Source>
+      <Name>sight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\sight.xnb</Output>
+      <Time>2008-11-05T20:30:41.9279939+01:00</Time>
+    </Item>
+    <Item>
+      <Source>gun_item.png</Source>
+      <Name>gun_item</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\gun_item.xnb</Output>
+      <Time>2008-11-05T20:59:47.8901939+01:00</Time>
+    </Item>
+    <Item>
+      <Source>health_item.png</Source>
+      <Name>health_item</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\health_item.xnb</Output>
+      <Time>2008-11-05T20:59:47.8901939+01:00</Time>
+    </Item>
+    <Item>
+      <Source>shield_item.png</Source>
+      <Name>shield_item</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\shield_item.xnb</Output>
+      <Time>2008-11-05T20:59:47.8901939+01:00</Time>
+    </Item>
+    <Item>
+      <Source>unknown.png</Source>
+      <Name>unknown</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\unknown.xnb</Output>
+      <Time>2008-11-06T15:54:32.4329987+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bullet.png</Source>
+      <Name>bullet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\bullet.xnb</Output>
+      <Time>2008-11-06T16:15:18.3589987+01:00</Time>
+    </Item>
+    <Item>
+      <Source>pistol.png</Source>
+      <Name>pistol</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\pistol.xnb</Output>
+      <Time>2008-11-06T16:15:18.3609987+01:00</Time>
+    </Item>
+    <Item>
+      <Source>no_bullet.png</Source>
+      <Name>no_bullet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\no_bullet.xnb</Output>
+      <Time>2008-11-06T16:15:55.1009987+01:00</Time>
+    </Item>
+    <Item>
+      <Source>machine_gun.png</Source>
+      <Name>machine_gun</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\machine_gun.xnb</Output>
+      <Time>2008-11-06T16:58:25.1889987+01:00</Time>
+    </Item>
+    <Item>
+      <Source>shotgun.png</Source>
+      <Name>shotgun</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\shotgun.xnb</Output>
+      <Time>2008-11-06T16:58:33.9869987+01:00</Time>
+    </Item>
+    <Item>
+      <Source>slug.png</Source>
+      <Name>slug</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\slug.xnb</Output>
+      <Time>2008-11-07T15:38:34.1060031+01:00</Time>
+    </Item>
+    <Item>
+      <Source>ray.png</Source>
+      <Name>ray</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\ray.xnb</Output>
+      <Time>2008-11-07T20:29:53.5304268+01:00</Time>
+    </Item>
+    <Item>
+      <Source>laser_bullet.png</Source>
+      <Name>laser_bullet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\laser_bullet.xnb</Output>
+      <Time>2008-11-08T12:17:49.7808039+01:00</Time>
+    </Item>
+    <Item>
+      <Source>laser_noBullet.png</Source>
+      <Name>laser_noBullet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\laser_noBullet.xnb</Output>
+      <Time>2008-11-08T12:17:49.7838039+01:00</Time>
+    </Item>
+    <Item>
+      <Source>laser.png</Source>
+      <Name>laser</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\laser.xnb</Output>
+      <Time>2008-11-08T12:44:51.0728039+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Regular.spritefont</Source>
+      <Name>Regular</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\Regular.xnb</Output>
+      <Time>2008-11-09T11:13:10.2385998+01:00</Time>
+    </Item>
+    <Item>
+      <Source>kropek.png</Source>
+      <Name>kropek</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\kropek.xnb</Output>
+      <Time>2008-11-10T12:53:38.3202035+01:00</Time>
+    </Item>
+    <Item>
+      <Source>dead.png</Source>
+      <Name>dead</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\dead.xnb</Output>
+      <Time>2008-11-10T18:41:47.6024023+01:00</Time>
+    </Item>
+    <Item>
+      <Source>monster.png</Source>
+      <Name>monster</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\monster.xnb</Output>
+      <Time>2008-11-10T18:41:47.6074023+01:00</Time>
+    </Item>
+    <Item>
+      <Source>grenade.png</Source>
+      <Name>grenade</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\grenade.xnb</Output>
+      <Time>2008-11-11T20:07:43.7744084+01:00</Time>
+    </Item>
+    <Item>
+      <Source>little_grenade.png</Source>
+      <Name>little_grenade</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\little_grenade.xnb</Output>
+      <Time>2008-11-11T20:07:43.7764084+01:00</Time>
+    </Item>
+    <Item>
+      <Source>no_grenade.png</Source>
+      <Name>no_grenade</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\no_grenade.xnb</Output>
+      <Time>2008-11-11T20:07:43.7794084+01:00</Time>
+    </Item>
+    <Item>
+      <Source>explosion.png</Source>
+      <Name>explosion</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\explosion.xnb</Output>
+      <Time>2008-11-11T20:49:16.1144084+01:00</Time>
+    </Item>
+    <Item>
+      <Source>bazooka.png</Source>
+      <Name>bazooka</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\bazooka.xnb</Output>
+      <Time>2008-11-14T20:23:36.3553925+01:00</Time>
+    </Item>
+    <Item>
+      <Source>no_rocket.png</Source>
+      <Name>no_rocket</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\no_rocket.xnb</Output>
+      <Time>2008-11-18T15:55:02.0177915+01:00</Time>
+    </Item>
+    <Item>
+      <Source>rocket.png</Source>
+      <Name>rocket</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\rocket.xnb</Output>
+      <Time>2008-11-18T15:55:02.0207915+01:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Przemo\Documents\Visual Studio 2008\Projects\Dark_Avenger_Ver_0.02\Dark_Avenger_Ver_0.02\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2008-10-10T18:42:32+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2008-10-10T18:43:28+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2008-10-10T18:43:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2008-10-10T18:48:18+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2008-10-10T18:48:50+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\3.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2008-10-30T17:37:12.3163812+01:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

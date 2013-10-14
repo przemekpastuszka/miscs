@@ -1,0 +1,224 @@
+#include <iostream>
+#include <cmath>
+#include <cstdlib>
+#include <ctime>
+#include <iomanip>
+using namespace std;
+/*******************************************************************************/
+//Klasa macierz pozwalająca na przeprowadzenie eliminacji Gaussa
+/*******************************************************************************/
+class Matrix{
+    private:
+    unsigned int m, n; //wymiary macierzy
+    double **elements; //elementy
+    
+    public:
+    Matrix(unsigned int m, unsigned int n);
+    Matrix(const Matrix&);
+    ~Matrix();
+    
+    
+    //funkcje pomocnicze eliminacji Gaussa
+    void Swap(unsigned int a, unsigned int b); //zamienia wiersze
+    void MultiplyAndSubstract(unsigned int a, unsigned int b, double c); //odejmuje od wiersza b wiersz a przemnożony przez c
+    void MultiplyBy(unsigned int a, double c); //mnoży wiersz a przez skalar c
+    
+    void GaussElimination(); //przeprowadza eliminację Gaussa z częściowym wyborem elementów głównych
+    
+    bool IsRowEmpty(unsigned int a); //czy rząd a zawiera same zera
+    unsigned int GaussRank(); //oblicza rząd macierzy przy pomocy eliminacji Gaussa
+    
+    double InftyNorm(); //oblicza normę macierzy (nieskończoność)
+    unsigned int GaussRankB(); //oblicza rząd macierzy przy pomocy eliminacji Gauss (metoda nr 2)
+    
+    //operator [] pozwala na intuicyjny dostęp do elementów macierzy
+    double* operator[](unsigned int k){
+        return elements[k];
+    }
+    void Print(unsigned int prec, unsigned int width); //wypisuje macierz na ekran
+};
+void Matrix :: Swap(unsigned int a, unsigned int b){
+    for(unsigned int i = 0; i < n; ++i){
+        double tmp = elements[a][i];
+        elements[a][i] = elements[b][i];
+        elements[b][i] = tmp;
+    }
+}
+Matrix :: Matrix(unsigned int m, unsigned int n){
+    this -> m = m;
+    this -> n = n;
+    elements = new double*[m];
+    for(unsigned int i = 0; i < m; ++i)
+        elements[i] = new double[n];
+}
+Matrix :: Matrix(const Matrix& matrix){
+    this -> m = matrix.m;
+    this -> n = matrix.n;
+    elements = new double*[m];
+    for(unsigned int i = 0; i < m; ++i)
+        elements[i] = new double[n];
+    for(unsigned int i = 0; i < m; ++i){
+        for(unsigned int j = 0; j < n; ++j)
+            elements[i][j] = matrix.elements[i][j];
+    }
+}
+Matrix :: ~Matrix(){
+    for(unsigned int i = 0; i < m; ++i)
+        delete [] elements[i];
+    delete [] elements;
+}
+void Matrix :: MultiplyAndSubstract(unsigned int a, unsigned int b, double c){
+    for(unsigned int i = 0; i < n; ++i)
+        elements[b][i] -= c * elements[a][i];
+}
+void Matrix :: MultiplyBy(unsigned int a, double c){
+    for(unsigned int i = 0; i < n; ++i)
+        elements[a][i] *= c;
+}
+void Matrix :: Print(unsigned int prec, unsigned int width){
+    cout.precision(prec);
+    cout.setf(ios :: fixed, ios :: floatfield);
+    for(int i = 0; i < m; ++i){
+        for(int j = 0; j < n; ++j){
+            std :: cout << setw(width + prec) << elements[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+double Matrix :: InftyNorm(){
+    double norm = 0;
+    for(int i = 0; i < m; ++i){
+        double sum = 0;
+        for(int j = 0; j < n; ++j){
+            sum += abs(elements[i][j]);
+        }
+        if(sum > norm)
+            norm = sum;
+    }
+    return norm;
+}
+unsigned int Matrix :: GaussRankB(){
+    unsigned int q = std :: min(m, n);
+    unsigned int i = 0;
+    double epsilon = pow(2, -21);
+    double inftyNorm = InftyNorm();
+    for(; i < q; ++i){
+        
+        //znajdź element główny
+        double l = abs(elements[i][i]);
+        int p = i;
+        for(unsigned int j = i + 1; j < m; ++j)
+            if(abs(elements[j][i]) > l){
+                l = abs(elements[j][i]);
+                p = j;
+            }
+        
+        if(l < epsilon) //
+            break;
+        
+        Swap(i, p); //zamień aktualny wiersz z wierszem zawierającym element główny
+        
+        //jeśli wyraz wiodący wiersza jest różny od 0 to można wykonać krok eliminacji
+        if(elements[i][i] != 0){
+            MultiplyBy(i, 1 / elements[i][i]);
+            for(unsigned int j = i + 1; j < m; ++j)
+                MultiplyAndSubstract(i, j, elements[j][i]);
+        }
+    }
+    return i;
+}
+void Matrix :: GaussElimination(){
+    unsigned int q = std :: min(m, n); 
+    for(unsigned int i = 0; i < q; ++i){
+        
+        //znajdź element główny
+        double l = abs(elements[i][i]);
+        int p = i;
+        for(unsigned int j = i + 1; j < m; ++j)
+            if(abs(elements[j][i]) > l){
+                l = abs(elements[j][i]);
+                p = j;
+            }
+        Swap(i, p); //zamień aktualny wiersz z wierszem zawierającym element główny
+        
+        //jeśli wyraz wiodący wiersza jest różny od 0 to można wykonać krok eliminacji
+        if(elements[i][i] != 0){
+            MultiplyBy(i, 1 / elements[i][i]);
+            for(unsigned int j = i + 1; j < m; ++j)
+                MultiplyAndSubstract(i, j, elements[j][i]);
+        }
+    }
+}
+bool Matrix :: IsRowEmpty(unsigned int a){
+     for(int i = n - 1; i >= 0; --i) //przeszukuje od prawej strony do lewej ze względu na trójkątną postać macierzy
+        if(elements[a][i] != 0)
+            return false;
+    return true;
+}
+unsigned int Matrix :: GaussRank(){
+    GaussElimination(); //najpierw wykonuje eliminacje Gaussa
+    unsigned int result = std :: min(m, n); //wiersze o indeksach większych niż min(m, n) są na pewno zerowe
+    for(int i = min(m, n) - 1; i >= 0; --i)
+        if(IsRowEmpty(i))
+            --result;
+    return result;
+}
+/*******************************************************************************/
+
+//testuj przy pomocy n macierzy o wymiarach mxm o wartościach w zbiorze {cp, ..., ck}, wykonując na nich p przekształceń
+void Tester(unsigned int n, unsigned int m, unsigned int cp, unsigned int ck, unsigned int p, unsigned int rank,
+    bool printErrors){
+        
+    Matrix test(m, m);
+   
+    unsigned int errors = 0;
+    for(unsigned int i = 0; i < n; ++i){
+        
+        
+        
+        //losuj wartości macierzy (na i powyżej głównej przekątnej)
+        for(unsigned int k = 0; k < m; ++k){
+            for(unsigned int j = 0; j < m; ++j){
+                if(j >= k && k < rank)
+                    test[k][j] = cp + rand() % (ck + 1 - cp);
+                else
+                    test[k][j] = 0; //zeruj pod główną przekątną
+            }
+        }
+        
+        //wykonaj p przekształceń elementarnych (przemnóż wiersz przez skalar albo dodaj jeden wiersz do drugiego mnożąc przez pewien skalar)
+        //te skalary też są z przedziału {cp, ..., ck}
+        for(unsigned int j = 0; j < p; ++j){
+            int a = rand() % m, b = rand() % m;
+            double c = (cp + rand() % (ck + 1 - cp));
+            if(a == b)
+                test.MultiplyBy(a, c);
+            else
+                test.MultiplyAndSubstract(a, b, -c);
+        }
+        
+        
+        Matrix copy(test);
+        unsigned int result = copy.GaussRankB();
+        if(result != rank){
+            if(printErrors){
+                cout << "Poprawny rzad: " << rank << "\nRzad obliczony: " << result << endl;
+                test.Print(0, 5);
+                std :: cout << std :: endl;
+                copy.Print(2, 5);
+                std :: cout << std :: endl;
+                std :: cout << std :: endl;
+            }
+            ++errors;
+        }
+    }
+    cout << "Niepoprawnie obliczono rzad " << errors << " macierzy (metoda B)" << endl;
+} 
+
+int main(){
+    srand(time(NULL));
+    
+    Tester(1000000, 15, 1, 7, 25, 12, false);
+    
+    return 0;
+}

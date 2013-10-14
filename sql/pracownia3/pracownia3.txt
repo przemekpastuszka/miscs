@@ -1,0 +1,87 @@
+--zad 1
+--Drop domain typ_tytul;
+create domain typ_tytul as varchar(10)
+	check (value in ('mgr', 'dr', 'dr hab.', 'prof.', NULL));
+--alter table uzytkownik drop tytul cascade;
+alter table uzytkownik add tytul typ_tytul;
+update uzytkownik set tytul = 'dr hab.' from
+	grupa
+	join przedmiot_semestr using (kod_przed_sem)
+	join przedmiot using (kod_przed)
+	where grupa.kod_uz = uzytkownik.kod_uz and 
+		rodzaj = 'o' and rodzaj_zajec = 'w';
+		
+--zad2
+--drop sequence seq_kod_wybor;
+create sequence seq_kod_wybor;
+--alter table wybor drop kod_wybor cascade;
+alter table wybor add kod_wybor int;
+update wybor set kod_wybor = nextval('seq_kod_wybor');
+
+
+--zad3
+insert into przedmiot 
+	(select max(kod_przed) + 1, 'Praktyka zawodowa', 4, 'p', false from przedmiot);
+	
+--zad4
+update przedmiot_semestr set kod_przed = (select kod_przed from przedmiot where nazwa = 'Praktyka zawodowa')
+	from semestr, przedmiot
+	where semestr.nazwa like '%oferta%' and przedmiot.nazwa like 'Kurs programowania%' and
+	semestr.semestr_id = przedmiot_semestr.semestr_id and 
+	przedmiot_semestr.kod_przed = przedmiot.kod_przed;
+	
+--zad5
+--drop view plan_stud;
+create view plan_stud (semestr, imie, nazwisko, kod_uz, nazwa, termin, kod_grupy) as
+	(select 
+		case
+			when semestr.nazwa like '%letni%' then 'l'
+			when semestr.nazwa like '%zimowy%' then 'z'
+			else ''
+		end,
+		uzytkownik.imie, uzytkownik.nazwisko, uzytkownik.kod_uz,
+		przedmiot.nazwa, grupa.termin, grupa.kod_grupy from
+		przedmiot join przedmiot_semestr using (kod_przed)
+		join semestr using (semestr_id)
+		join grupa using (kod_przed_sem)
+		join wybor using (kod_grupy)
+		join uzytkownik on uzytkownik.kod_uz = wybor.kod_uz
+		where rodzaj_zajec = 'w' and
+		semestr.nazwa like '%2008/2009%');
+		
+--zad6
+select nazwisko, count(distinct kod_grupy) from
+	plan_stud
+	where semestr = 'l' group by plan_stud.kod_uz, nazwisko
+	having(count(distinct kod_grupy)) > 3
+	order by count(distinct kod_grupy) desc;
+	
+--zad7
+begin;
+select count(*) from wybor;
+
+create rule oh_god as on
+	delete to plan_stud
+	do instead
+		delete from wybor where kod.grupy = OLD.kod_grupy;
+
+DELETE FROM plan_stud WHERE nazwisko='Saladra'; 
+	
+select count(*) from wybor;
+rollback;
+
+--zad8	
+begin;
+select * from plan_stud where kod_uz = 3830;
+delete from wybor where kod_uz = 3830 and wybor.kod_grupy in
+	(select grupa.kod_grupy from grupa
+		 join przedmiot_semestr using (kod_przed_sem)
+		 join semestr using (semestr_id)
+		 where rodzaj_zajec = 'w' and semestr.nazwa like '%2008/2009%');
+select * from plan_stud where kod_uz = 3830;
+rollback;
+select * from plan_stud where kod_uz = 3830;
+
+
+--zad9
+

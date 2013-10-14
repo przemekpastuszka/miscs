@@ -1,0 +1,7 @@
+Przemysław Pastuszka
+Sprawozdanie z pracowni nr 8
+
+1) Po skopiowaniu napisanego przez siebie skryptu na serwer instytutowy znalazłem dostępne komputery w sali 7 i wybrałem ten z namniejszym czasem odpowiedzi. W celu połączenia się z tym komputerem połączyłem się kolejno: z tryglawem, herą i dopiero końcowo z tym właśnie komputerem. Użyłem polecenia ssh -X
+2) Ściągnąłem i uruchomiłem Debiana na Qemu.
+3) Zamontowałem odpowiednią partycję do systemu. Następnie odnalazłem i wyczyściłem plik /etc/shadow. Niestety, chwilę później moje połączenie ssh zostało przerwane. Próba ponownego połączenia nie zakończyła się powodzeniem - komputer docelowy odrzucał prośbę o przekierowanie systemu X-ów na moją maszynę. Z tego powodu nie miałem okazji przekonać się czy mogłem ustawić swoje hasło roota
+4) Nie wykonałem z powodu problemu, który opisałem w punkcie 3

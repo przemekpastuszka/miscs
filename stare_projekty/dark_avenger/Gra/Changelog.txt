@@ -1,0 +1,19 @@
+DARK AVENGER by Przemek Pastuszka
+-----------------------------------------
+
+ver. 0.02
+------------
+-3 levels of difficulty
+-mobile camera
+-new weapons
+  *pistol
+  *shotgun
+  *machine gun
+  *grenades
+  *rocket launcher
+  *laser gun
+-collecting items (weapons, health, shield)
+
+ver. 0.01
+-------------
+-first version

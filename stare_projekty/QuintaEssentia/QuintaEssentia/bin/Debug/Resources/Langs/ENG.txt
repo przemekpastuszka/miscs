@@ -1,0 +1,46 @@
+45
+Visible quads: 
+Frustum checks: 
+Load level
+New level
+Play
+Edit
+Browse...
+Path:
+Name:
+Size:
+Perform an action
+Choose level
+Level file
+Chosen file not found.
+Size must be a positive integer
+Size of terrain must be a power of 2!
+Editor Tool
+Global light
+Use I,J,K,L to set\nglobal light direction
+Freeze
+Light direction:
+Apply
+Ambient:
+Ambient value must be a float between 0 and 1!
+Use WSAD, arrows and mouse\nwheel to set the camera
+Angle:
+Camera type:
+Isometrical - terrain dependant
+Above the ground:
+Isometrical - constant
+Max height:
+Camera position:
+Camera look vector:
+Camera Editor
+Height multiplier:
+Terrain
+Modeler
+Radius:
+Smooth size:
+Modelling type:
+Height change
+Height smoothing
+Height delta
+Terrain Picker
+Visibility:

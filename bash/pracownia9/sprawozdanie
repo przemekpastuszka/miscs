@@ -1,0 +1,19 @@
+Przemysław Pastuszka
+Sprawozdanie z pracowni nr 9
+
+1) Zainstalowałem serwer pocztowy exim, korzystając z gotowych repozytoriów:
+	sudo apt-get install exim4
+
+Następnie skonfigurowałem go za pomocą: sudo dpkg-reconfigure exim4-config
+
+2) Jeśli chodzi o wysyłanie poczty to nie ma z tym problemu zarówno z użyciem programu mail,
+jak i z użyciem standardowego narzędzia exima
+
+3) Nie udało mi się skonfigurować exima w ten sposób, aby odebrał pocztę. Być może dlatego, iż test przeprowadzałem na
+własnym systemie operacyjnym zamiast na maszynie wirtualnej.
+
+4) Adres nadawcy można zmienić wywołując raz jeszcze: sudo dpkg-reconfigure exim4-config
+"Envelope address" łatwo zmienić, gdy wysyłamy pocztę bezpośrednio przy użyciu exim'a - wsytarczy 
+wywołać go z opcją -f envelope_address
+
+5) Patrz punkt 3

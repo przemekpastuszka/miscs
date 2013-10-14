@@ -1,0 +1,14 @@
+--nawiasowanie jest ważne
+f x = map - (1 x)
+:: (Num (t -> (a -> b) -> [a] -> [b]),
+	Num ((a -> b) -> [a] -> [b])) =>
+	t -> (a -> b) -> [a] -> [b]
+
+f x = map (-1) x
+:: (Num (a -> b)) => [a] -> [b]
+
+f x = [x] : [1]
+(Num [t]) => t -> [[t]]
+
+f x = x * (sin .1)
+:: (Floating b, Num (a -> b)) => (a -> b) -> a -> b

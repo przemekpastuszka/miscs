@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" href="{{ STATIC_URL }}subTrail.css" type="text/css">
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="">
+    <tr>
+    <td align="center">
+    <table width="80%" border="0" bgcolor="" cellpadding="0" cellspacing="6">
+        <tr>
+        <td align="center">
+        <a name="top"></a>
+        <table width="100%" cellspacing="0" cellpadding="7" border="0" align="center">
+
+            <tr>
+            <td class="bodyline">
+
+            <table width="100%" cellpadding="2" cellspacing="1" border="0" class="forumline">
+            <tr>
+            <th>Forum takie, że ja p....</th>
+            </tr>
+            <tr>
+            <td class="row1" align="center">
+
+            {% if user.is_authenticated %}
+                Zalogowany jako <a href="{% url board.views.users user.id %}">{{ user.username }}</a>. <a href="{% url django.contrib.auth.views.logout %}">Wyloguj</a><br/>
+                Ostatnio byłeś tu {{ user.last_login }}
+            {% else %}
+                Nie jesteś zalogowany. <a href="{% url django.contrib.auth.views.login %}?next={% url board.views.index %}"> Zaloguj</a>
+            {% endif %}
+            </span></td>
+
+            </tr>
+            </table><br />
+            {% block navigation %} {% endblock %}
+           
+
+
+            <table width="100%" cellpadding="2" cellspacing="1" border="0" class="forumline">
+                {% block content %} {% endblock %}
+            </table>
+
+            <br />
+
+            <br clear="all" />
+
+            <div align="center"></div><center></center></td></tr>
+        </table></td>
+        </tr>
+    </table>
+    </td>
+    </tr>
+
+</table>
+
+</body>
+</html>

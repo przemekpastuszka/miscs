@@ -1,0 +1,20 @@
+let fix = \f -> (\x -> \y -> f (x x) y) (\x -> \y -> f (x x) y);
+let zero = \f -> \x -> x;
+let suc = \n -> \f -> \x -> f (n f x);
+let add = \x -> \y -> x suc y;
+let mul = \x -> \y -> x (add y) zero;
+let true = \x -> \y -> x;
+let false = \x -> \y -> y;
+let pair = \x -> \y -> \z -> z x y;
+let fst = \x -> x true;
+let snd = \x -> x false;
+let pred = \n -> snd (n  (\p -> pair (suc (fst p)) (fst p)) (pair zero zero));
+let minus = \m -> \n -> n pred m;
+let eq = \m -> \n -> (add (minus m n) (minus n m)) (\w -> false) true;
+let F = \f -> \n -> ((eq zero n) (\x -> suc zero) (\x -> mul n (f (pred n)))) 0;
+let fac = fix F;
+let toInteger = \n -> n (\x -> x + 1) 0;
+let fromInteger = \n ->
+	if n = 0 then zero
+	else suc (fromInteger (n - 1));
+toInteger (fac (fromInteger 7))

@@ -1,0 +1,22 @@
+zad 4.1 - policzone metodą minimalizacji błędu
+[-, 0.3] -> w3
+[0.3, _] -> w1
+[-, 0.6] -> w3
+[0.2, -] -> w1
+
+zad 4.2 - my_kmeans.m
+Przykład użycia (randomClasses pochodzi z listy nr 2):
+    c = randomClasses(1000, {[8] [12] [4] [16]}, {eye(1) eye(1) eye(1) eye(1)}, [0.1 0.2 0.3 0.4])
+    t = my_kmeans(c{1}', 4)
+
+    t{1} zawiera podział punktów na klastry
+    t{2} zawiera centra klastrów
+
+zad 4.4 - to zadanie realizuje funkcja randomClasses, którą napisałem jako rozwiązanie zad 2.3
+
+zad 4.5 - EM.m
+    Przykład użycia:
+    c = randomClasses(1000, {[8 8] [12 12] [4 4] [16 16]}, {eye(2) eye(2) eye(2) eye(2)}, [0.1 0.2 0.3 0.4])
+    tt = EM(c{1}', 4);
+
+    tt = {lista_median, lista_sigm, lista_pi}

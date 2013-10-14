@@ -1,0 +1,20 @@
+//obliczanie silni
+function number fac(number n)
+{
+	number result;
+	if(n==0)
+	{
+		result=1;
+	}
+	else
+	{
+		result=n*fac(n-1);
+	}
+	return result;
+}
+
+function number test()
+{
+	//przykładowa funkcja zwraca silnię od wartości 6
+	return fac(6);
+}

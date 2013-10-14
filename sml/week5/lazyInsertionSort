@@ -1,0 +1,26 @@
+val empty = Susp.delay (fn () => Stream.Nil)
+fun singleton x = Susp.delay (fn () => Stream.Cons(x, empty))
+
+fun minimum ls = case Susp.force ls of
+    Stream.Nil => raise Stream.SHd
+    | Stream.Cons (x, t) =>
+        case Susp.force t of
+        Stream.Nil => (x, empty)
+        | Stream.Cons(_, _) =>
+            let val (min, rest) = minimum t in
+                if x < min then (x, Susp.delay (fn () => Stream.Cons(min, rest)))
+                else (min, Susp.delay (fn () => Stream.Cons(x, rest)))
+            end
+
+fun insertionSort s = Susp.delay (fn () =>
+        let val (min, rest) = minimum s in
+        Stream.Cons(min, insertionSort rest) end
+        handle Stream.SHd => Stream.Nil
+    )
+
+fun fromList [] = Susp.delay (fn () => Stream.Nil)
+    | fromList (h :: t) =  Susp.delay (fn () => Stream.Cons(h, fromList t))
+
+fun toList s = case Susp.force s of
+    Stream.Nil => []
+    | Stream.Cons(x, t) => x :: toList t

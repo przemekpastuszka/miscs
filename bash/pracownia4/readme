@@ -1,0 +1,21 @@
+Do rozwiązań zadań 2 oraz 3 dołączam przykładowy plik CSV z zapisem pewnych operacji bankowych o nazwie file i poniższej sygnaturze:
+Data operacji ; Opis operacji ; Wartość operacji ; Wysokość salda po wykonaniu operacji
+
+Przykłady użycia skryptów zad2 i zad3:
+    ./zad2.sh -o 100 -s 1000 -n "16544311060900070002351151" file
+    Wynik:
+        Spadek salda do 474.14 dnia 2010-10-06
+        Obciążenie rachunku o  dnia 2010-10-06
+        Wypłata na numer konta 16544311060900070002351151 dnia 2010-10-06
+        Spadek salda do 324.14 dnia 2010-10-08
+        Obciążenie rachunku o  dnia 2010-10-08
+        Spadek salda do 968.32 dnia 2010-10-28
+        Spadek salda do 968.89 dnia 2010-10-29
+
+    ./zad3.sh file
+    Wynik:
+        Średnie saldo dzienne wyniosło 977.432
+        
+    ./zad3.sh -p "2010-10-10" -k "2010-10-20" file
+    Wynik:
+        Średnie saldo dzienne wyniosło 1200

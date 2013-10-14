@@ -1,0 +1,11 @@
+Przemyslaw Pastuszka
+pracownia C
+
+Sugestie dotyczace programu wykladu:
+-zmienic bash na jezyk skryptowy z prawdziwego zdarzenia (perl/python/ruby etc) i omowic w jaki sposob, z ich poziomu, prowadzic interakcje z systemem. Jezyki te maja o niebo lepsza skladnie niz bash oraz nie posiadaja dziwnych ograniczen, jakie on narzuca, przez co praca z nimi jest lepsza/latwiejsza/bardziej wydajna.
+-kontynuujac mysl z poprzedniej sugestii: perl i python maja na tyle rozwiniete narzedzia do operacji na tekscie, ze stawia to pod znakiem zapytania koniecznosc korzystania z takich programow jak sed czy awk. Lepiej poswiecic wieksza liczbe zajec na omowienie ktoregos z tych jezykow
+-zmienic Qemu na VirtualBox - Qemu jest niesamowicie wolne - praca na odpalonym przez nie systemie jest katorga, podczas gdy VirtualBox pozwala na komfortowa prace nawet na komputerze sredniej klasy
+-nie widze rowniez benefitow z nauki postscripta. Latwiej narysowac obrazek w programie do grafiki wektorowej, ktory automatycznie wygeneruje plik postscript. Zamiast niego proponuje latexa, ktorego znajomosc naprawde przydaje sie w codziennym zyciu (ja uzywam go niezwykle czesto - poczawszy od tworzenia dokumentow na uczelnie po wszelkie fora internetowe)
+
+Chetnie rowniez nauczylbym sie podstaw vima. Nigdy nie mialem wystarczajacego samozaparcia, aby zrobic to samemu, a slyszalem opinie, ze niezwykle ulatwia prace z wszelkimi tekstami.
+Ponadto zaluje, ze nie pojawilo sie wiecej materialu stricte programistycznego, ale zdaje sobie sprawe, ze bedzie to temat przedmiotu prowadzonego przez Pana w kolejnym semestrze.

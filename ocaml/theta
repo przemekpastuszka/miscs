@@ -1,0 +1,7 @@
+type 'a self = Fold of ('a self -> 'a);;
+let unfold (Fold t) = t;;
+
+
+let theta f =
+	let a x y q = y ( unfold x x y ) q in
+	a (Fold a) f;;

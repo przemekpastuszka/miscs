@@ -1,0 +1,12 @@
+Przemysław Pastuszka
+Sprawozdanie - pracownia A
+
+RSYNC
+1) Nie udalo mi sie wykonac tego zadania i watpie by bylo to mozliwe w mojej wersji rsync (3.0.7), gdyz w manualu znalazlem taki oto wpis: " Note that rsync must be installed on both the source and destination machines."
+2) Maksymalna liczba opcji: -rlptEAXog --devices --specials
+Minimalna liczba opcji: -aAEX
+3)
+4) W pliku rsyncd.conf nalezy zdefiniowac moduly, ktore beda pozwalaly na dostep do plikow/katalogow. Skoro transfer ma odbywac się w kierunku serwera to nalezy w kazdym module ustawic flage read only na false, zas write only na true. Dla każdego modulu podajemy, ktore maszyny moga lub nie moga z niego korzystac (host allow i host deny). Inna opcja jest podanie zaufanych uzytkownikow poprzez auth users i zdefiniowanie pliku secrets file, ktory zawiera hasla tych uzytkownikow. Powyzsze mechanizmy pozwalaja na bardzo dobra kontrolę operacji, ktore są wykonywane ze zdalnych maszyn. Dodatkowo mozna zdefiniowac, które opcje beda odrzucane przez rsync (poprzez refuse)
+5) W konfiguracji modulow nalezy dodac host allow = localhost. rsync nalezy odpalac z dodatkowym parametrem -e 'ssh -p numer_portu'
+
+Nie moglem niestety przetestowac dzialania Samby, gdyz nie mam dostepu do komputera z windowsem lub zainstalowanym serwerem Samby. Probowalem zainstalowac serwer Samby na maszynie wirtualnej, lecz nie udalo mi sie uzyskac bezposredniego polaczenia miedzy maszyna wirtualna a moim komputerem.

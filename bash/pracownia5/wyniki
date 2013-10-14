@@ -1,0 +1,20 @@
+Przemysław Pastuszka
+Kurs pracy w systemie Linux
+
+1) Proces, który przechwytuje sygnały o numerach 1 - 15, można zabić jedynie SIGKILLem
+2) Sygnał SIGCONT działa bardziej jak polecenie bg, gdyż fg nie wznawia zatrzymanego procesu
+3) Sygnały 1, 4 - 15 zabijają wszystkie procesy w grupie. Sygnały 2, 3 nie powodują wykonania żadnej akcji
+4) Skrypt najpierw uruchamia podany program w tle. Następnie w każdym obrocie pętli, przy pomocy ps, sprawdza czy jest on nadal uruchomiony. Jeśli tak i czas od momentu rozpoczęcia pętli przekroczył jedną z zadanych wartości to wywyoływane są odpowiednio komendy killall -SIGTERM i/lub killall -SIGKILL. Następnie licznik sekund jest zwiększany, a pętla usypiana na jedną sekundę.
+5) Po uruchomieniu skryptu udało mi się zabić wszystkie jego instancje, ale system nie nadawał się już do dalszej pracy (zapewne cała zawartość pamięci została przemieszczona do swap'a) - byłem zmuszony wykonać reboot
+6) Init adoptuje proces, który utracił rodzica. Nie potrafię wyprodukować zombie za pomocą basha
+7) Tak, proces, który zabił rodzica, zostaje zaadoptowany przez init
+8) Ograniczyłem liczbę procesów dostępnych w powłoce do 150 (ulimit -u 150) po czym uruchomiłem skrypt napisany do zadania piątego. Ograniczenie rzeczywiście działa, instancje skryptu można bezproblemowo zabić i powrócić do normalnej pracy.
+9) Mam problem z ustawieniem wartości twardych zasobów poleceniem ulimit (przykładowo ulimit -Hm 100). Otrzymuję komunikat "nie można zmienić ograniczenia: Zły argument", mimo iż aktualne ograniczenie twarde na pamięć jest ustawione na "unlimited" (wg znalezionego przeze mnie opisu ulimit każdy użytkownik ma możliwość obniżenia ograniczenia twardego na zasoby). Próbowałem uruchomić ulimit na prawach root'a, ale tutaj sprawa jest jeszcze dziwniejsza, gdyż otrzymuję komunikat "command not found".
+10) Aktualne priorytety procesów można sprawdzić używając top (kolumna NI). Ustalanie / zmiana priorytetów za pomocą nice / renice jest bezproblemowe.
+11) Próbowałem uruchomić proces w izolowanym środowisku, jednak batch nie chce współpracować. Zadanie jest planowane do wykonania z pewnym czasem w przeszłości (i tym samym nigdy nie zostanie wykonane). Czasu wykonania podać explicite nie sposób ("batch accepts no parameters").
+12) Nie potrafię, niestety, zmusić cron'a do działania. Za pomocą crontab -e dodałem następujący wpis:
+    * * * * * ./home/rtshadow/Code/Bash/Pracownia5/zad12.sh
+    Jednak powyższe polecenie nie jest wykonywane.
+13) Najważniejszą częścią skryptu zad13.sh jest komenda: "at next monday < zad13.sh". At uruchomi skrypt w następny poniedziałek w tym samym środowisku (a więc z ustawionymi zmienną $args, która zwiera informacje: trunclines, maxchars oraz listę plików systemowych do przetworzenia)
+14) Wywołanie poleceń postaci "logger -p local7.poziom' spowodowało, iż odpowiednie wpisy pojawiły się w /var/log/errors.log, everything.log, messages.log i user.log
+15) Przy pomocy last z argumentami -if przetwarzam wszystki pliki wtmp, zapisując wynik do pliku tymczasowego, a następnie, przy pomocy awk, wypisuję znajduję wszystkie ip, z których logowano się na konto użytkownika o podanej nazwie (każde ip wypisywane jest tylko raz)

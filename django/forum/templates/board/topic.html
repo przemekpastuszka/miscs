@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block navigation %}
+
+<table width="100%" cellspacing="2" border="0" align="center" cellpadding="2">
+    <tr>
+    <td align="left" valign="middle"><span class="nav"><a href="{% url board.views.index %}" class="nav">Forum</a> &raquo;&nbsp;<a href="{% url board.views.cat_index topic.category.id %}" class="nav">{{ topic.category.name }}</a>
+    &raquo;&nbsp;<a href="{% url board.views.topic topic.id %}" class="nav">{{ topic.name }}</a></span></td>
+    <td align="right" valign="middle" nowrap="nowrap"><span class="nav">Strona <b>{{ posts.number }}</b> z <b>{{ posts.paginator.num_pages }}</b>&nbsp;&nbsp;<div class="pagination">
+    {% if posts.has_previous %}
+        <a href="?page={{ posts.previous_page_number }}" title="Wstecz">&nbsp;&laquo;&nbsp;</a>
+    {% endif %}
+    {% if posts.has_next %}
+        <a href="?page={{ posts.next_page_number }}" title="Dalej">&nbsp;&raquo;&nbsp;</a>
+    {% endif %}
+    </div></span></td>
+    </tr>
+    <tr>
+   <td align="left" valign="middle"><a href="{% url board.views.new_post topic.id %}">Napisz odpowiedź</a></td>
+    <td align="right" nowrap="nowrap">&nbsp;
+    </td>
+
+</tr>
+</table>
+
+{% endblock %}
+
+{% block content %}
+
+    <tr>
+      <th class="thLeft" width="125" height="26" nowrap="nowrap">Autor</th>
+      <th class="thRight" nowrap="nowrap">Wiadomość</th>
+   </tr>
+
+    
+    
+    {% for post in posts.object_list %}
+        <tr>
+            <td class="spaceRow" colspan="2" height="1"><img src="templates/subTrail/images/spacer.gif" alt="" width="1" height="1" /></td>
+            </tr>
+
+
+            <tr>
+            <td align="left" valign="top" class={% cycle 'row1' 'row2' %} nowrap="nowrap" width="125">
+            <span class="name"><a name="100588">
+            </a><b><a href="{% url board.views.users post.user.id %}" class="gensmall"  style="font-size: 12">{{ post.user.username }}</a></b>		 <br />
+
+            </span>
+            <span class="postdetails"><br />
+            </td>
+            <td class={% cycle 'row1' 'row2' %} width="100%" height="100%" valign="top">
+            <table width="100%" style="height: 100%;" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+            <td valign="top" align="left"> <span class="postdetails">{{ post.date_created }}&nbsp; &nbsp;<b></b>
+
+            </span></td>
+            <!--<td valign="top" align="right" nowrap="nowrap"><a href="posting.php?mode=quote&amp;p=100588" class="gen" title="Odpowiedz z cytatem">[<b>Cytuj</b>]</a>    <span class="postdetails"><br /></span></td>-->
+            </tr>
+            <tr>
+            <td colspan="2"><hr></td>
+            </tr>
+            <tr>
+
+            <td height="100%" valign="top" colspan="2" ><span class="postbody">{% filter linebreaksbr %}{{ post.message }}{% endfilter %}</span></td>
+            </tr>
+
+
+            </table>
+
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock %}

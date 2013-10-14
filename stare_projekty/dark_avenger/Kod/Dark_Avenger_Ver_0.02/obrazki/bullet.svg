@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="bullet.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient4660">
+      <stop
+         id="stop4662"
+         offset="0"
+         style="stop-color:#c17d01;stop-opacity:1;" />
+      <stop
+         id="stop4668"
+         offset="0.77272725"
+         style="stop-color:#f6c351;stop-opacity:1;" />
+      <stop
+         style="stop-color:#c17d01;stop-opacity:1;"
+         offset="1"
+         id="stop4708" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4645">
+      <stop
+         style="stop-color:#c17d01;stop-opacity:1;"
+         offset="0"
+         id="stop4647" />
+      <stop
+         id="stop4655"
+         offset="0.89393938"
+         style="stop-color:#c5b417;stop-opacity:0.74901962;" />
+      <stop
+         style="stop-color:#edf807;stop-opacity:0;"
+         offset="1"
+         id="stop4649" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3199">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop3201" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop3203" />
+    </linearGradient>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4660"
+       id="linearGradient4706"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.2100494,0,0,0.6028472,112.90505,235.73001)"
+       x1="214.28572"
+       y1="519.50504"
+       x2="405.71429"
+       y2="519.50507" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="300.06617"
+     inkscape:cy="496.96269"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer2"
+     showgrid="false"
+     inkscape:window-width="1280"
+     inkscape:window-height="750"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="kolko">
+    <path
+       style="fill:url(#linearGradient4706);fill-opacity:1"
+       inkscape:transform-center-x="11.002582"
+       d="M 156.44862,461.79546 C 168.42842,430.24165 185.66551,430.89942 197.52492,462.60165 C 209.38434,494.30389 204.2676,650.01992 204.2676,650.01992 L 150.22461,650.01992 C 150.22461,650.01992 144.4688,493.34926 156.44862,461.79546 z"
+       id="rect3197"
+       sodipodi:nodetypes="czccz"
+       inkscape:export-filename="C:\Users\Przemo\Desktop\Gloomy revenger\bullet.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1" />
+</svg>

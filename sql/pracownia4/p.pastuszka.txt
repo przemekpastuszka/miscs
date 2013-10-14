@@ -1,0 +1,193 @@
+/*revoke select on trasy_komunikaty from gosc;
+revoke select on grupa from gosc;
+revoke update, select on aktualne_grupy from ratownik;
+revoke update on aktualne_komunikaty from ratownik;
+revoke insert on komunikaty from ratownik;
+drop user gosc;
+drop user ratownik;
+drop domain rodzajGrupy cascade;
+drop domain km cascade;
+drop domain kolor cascade;
+drop domain czyLic cascade;
+drop table grupa cascade;
+drop table trasa cascade;
+drop table wyjscia cascade;
+drop table komunikaty cascade;
+drop view trasy_komunikaty cascade;*/
+
+--zad1
+create domain rodzajGrupy as varchar(30)
+	check (value in ('szkolna', 'studencka', 'pracownicza', 'turystyczna'));
+create domain km as real;
+create domain kolor as varchar(30)
+	check (value in ('żółty', 'czerwony', 'zielony', 'czarny', 'niebieski'));
+create domain czyLic as bool;
+
+
+--zad2
+create table grupa 
+(
+	gid serial primary key,
+	nazwa varchar(30),
+	licznosc int not null,
+	rodzajGrupy rodzajGrupy,
+	czasRej date not null,
+	czasDo date,
+	telefon varchar(15)
+);
+
+create table trasa
+(
+	tid serial primary key,
+	skad varchar(30) not null,
+	dokad varchar(30) not null,
+	km km,
+	srCzas interval,
+	kolor kolor
+);
+
+create table wyjscia
+(
+	tid int,
+	gid int,
+	czasWyjscia timestamp not null,
+	czasDojscia timestamp,
+	przewodnik varchar(30),
+	czyLic czyLic,
+	uwagi text,
+	constraint wyjscia_pkey primary key (tid, czasWyjscia)
+);
+
+create table komunikaty
+(
+	tid int,
+	czasOd date not null,
+	czasDo date not null,
+	tresc text not null,
+	constraint komunikaty_pkey primary key (tid, czasOd)
+);
+
+--zad3
+alter table wyjscia add constraint wyjscia_tid_fkey
+	foreign key (tid) references trasa
+	on delete set default;
+alter table wyjscia add constraint wyjscia_gid_fkey
+	foreign key (gid) references grupa
+	on delete set null;
+alter table komunikaty add constraint komunikaty_tid_fkey
+	foreign key (tid) references trasa
+	on delete cascade;
+	
+--zad4
+create index gid_index on grupa (gid);
+create index tid_index on trasa (tid);
+
+--zad5
+create user gosc;
+
+create view trasy_komunikaty (skad, dokad, km, srCzas, kolor, komunikat) as
+(
+	select skad, dokad, km, srCzas, kolor, tresc from
+	trasa left join komunikaty using (tid)
+	where (czasOd <= now() and czasDo >= now()) or tresc is null 
+);
+grant select on trasy_komunikaty to gosc;
+grant insert on grupa to gosc;
+
+--5b - awykonalne
+/*create view oblozenie_trasy (rok, miesiac, dzien, tid, skad, dokad, ile_grup, ile_osob) as
+(
+	select extract(hour from , miesiac, dzien, tid, skad, dokad, count(gid), sum(licznosc) from
+	trasa
+	join wyjscia using (tid)
+	join grupa using (gid)
+	where czasWyjscia <= now() and czasDojscia >= now()
+	group by tid
+);*/
+
+--zad6
+create user ratownik;
+create view aktualne_grupy as
+(
+	select * from
+	grupa
+	where czasDo is null
+);
+grant update, select on aktualne_grupy to ratownik;
+
+create rule edytuj_akt_grupe as
+	on update to aktualne_grupy
+	do instead update grupa set nazwa = new.nazwa, licznosc = new.licznosc,
+		rodzajGrupy = new.rodzajGrupy, czasDo = new.czasDo, telefon = new.telefon;
+
+create view aktualne_komunikaty as
+(
+	select * from komunikaty
+	where czasOd <= now() and czasDo >= now()
+);
+
+grant update on aktualne_komunikaty to ratownik;
+grant insert on komunikaty to ratownik;
+
+create rule edytuj_akt_kom as
+	on update to aktualne_komunikaty
+	do instead
+	update komunikaty set tid = new.tid, czasOd = new.czasOd, czasDo = new.czasDo, tresc = new.tresc;
+	
+grant update, delete on wyjscia to ratownik;
+
+create view wyjscia_2 as
+(
+	select * from wyjscia
+);
+
+grant update on wyjscia_2 to ratownik;
+
+create rule dodaj_wyjscia as
+	on insert to wyjscia_2
+	where exists 
+		(select * from wyjscia where 
+			przewodnik = new.przewodnik and
+			((date_trunc('day', czasWyjscia) <= date_trunc('day', new.czasWyjscia) and
+				(date_trunc('day', new.czasWyjscia) <= date_trunc('day', czasDojscia) 
+					or czasDojscia is null))
+				or
+			(date_trunc('day', czasWyjscia) <= date_trunc('day', new.czasDojscia) and
+				(date_trunc('day', new.czasDojscia) <= date_trunc('day', czasDojscia) or
+					czasDojscia is null))))
+	do instead
+	(
+		insert into wyjscia values(new.tid, new.gid, new.czasWyjscia, new.czasDojscia,
+			new.przewodnik, new.czyLic, new.uwagi);
+		update wyjscia set uwagi = 'skontaktować się z przewodnikiem'
+		where przewodnik = new.przewodnik and
+			((date_trunc('day', czasWyjscia) <= date_trunc('day', new.czasWyjscia) and
+				(date_trunc('day', new.czasWyjscia) <= date_trunc('day', czasDojscia) 
+					or czasDojscia is null))
+				or
+			(date_trunc('day', czasWyjscia) <= date_trunc('day', new.czasDojscia) and
+				(date_trunc('day', new.czasDojscia) <= date_trunc('day', czasDojscia) or
+					czasDojscia is null)))
+	);
+	
+create rule dodaj_wyjscia2 as
+	on insert to wyjscia_2
+	where not exists 
+		(select * from wyjscia where 
+			przewodnik = new.przewodnik and
+			((date_trunc('day', czasWyjscia) <= date_trunc('day', new.czasWyjscia) and
+				(date_trunc('day', new.czasWyjscia) <= date_trunc('day', czasDojscia) 
+					or czasDojscia is null))
+				or
+			(date_trunc('day', czasWyjscia) <= date_trunc('day', new.czasDojscia) and
+				(date_trunc('day', new.czasDojscia) <= date_trunc('day', czasDojscia) or
+					czasDojscia is null))))
+	do instead
+	(
+		insert into wyjscia values(new.tid, new.gid, new.czasWyjscia, new.czasDojscia,
+			new.przewodnik, new.czyLic, new.uwagi);
+	);
+	
+create rule dodaj_wyjscia3 as
+	on insert to wyjscia_2
+	do instead nothing;

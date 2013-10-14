@@ -1,0 +1,85 @@
+Log
+Simulation mode on
+Pathfinding in progress...
+Pathfinding completed. Time: 0,011
+Appropriate path found
+Path simplified. Time: 0,004
+Pathfinding in progress...
+Pathfinding completed. Time: 0
+Appropriate path found
+Path simplified. Time: 0,001
+Pathfinding in progress...
+Pathfinding completed. Time: 0,006
+Appropriate path found
+Path simplified. Time: 0,001
+Pathfinding in progress...
+Pathfinding completed. Time: 0,001
+Appropriate path found
+Path simplified. Time: 0,001
+Pathfinding in progress...
+Pathfinding completed. Time: 0,001
+Appropriate path found
+Path simplified. Time: 0
+Build mode on
+Map erased
+Simulation mode on
+Pathfinding in progress...
+Pathfinding completed. Time: 0,001
+Appropriate path found
+Path simplified. Time: 0,001
+Pathfinding in progress...
+Pathfinding completed. Time: 0,007
+Appropriate path found
+Path simplified. Time: 0,001
+Tracing off. Traces erased
+Pathfinding in progress...
+Pathfinding completed. Time: 0
+Appropriate path found
+Path simplified. Time: 0,001
+Pathfinding in progress...
+Pathfinding completed. Time: 0,003
+Appropriate path found
+Path simplified. Time: 0,001
+Pathfinding in progress...
+Pathfinding completed. Time: 0,001
+Appropriate path found
+Path simplified. Time: 0
+Pathfinding in progress...
+Pathfinding completed. Time: 0
+Appropriate path found
+Path simplified. Time: 0,001
+Pathfinding in progress...
+Pathfinding completed. Time: 0
+Appropriate path found
+Path simplified. Time: 0
+Pathfinding in progress...
+Pathfinding completed. Time: 0
+Appropriate path found
+Path simplified. Time: 0
+Pathfinding in progress...
+Pathfinding completed. Time: 0
+Appropriate path found
+Path simplified. Time: 0
+Pathfinding in progress...
+Pathfinding completed. Time: 0,003
+Appropriate path found
+Path simplified. Time: 0
+Pathfinding in progress...
+Pathfinding completed. Time: 0
+Appropriate path found
+Path simplified. Time: 0
+Pathfinding in progress...
+Pathfinding completed. Time: 0,001
+Appropriate path found
+Path simplified. Time: 0,001
+Pathfinding in progress...
+Pathfinding completed. Time: 0,005
+Appropriate path found
+Path simplified. Time: 0,001
+Pathfinding in progress...
+Pathfinding completed. Time: 0,002
+Appropriate path found
+Path simplified. Time: 0,001
+Pathfinding in progress...
+Pathfinding completed. Time: 0,016
+Path could not be find

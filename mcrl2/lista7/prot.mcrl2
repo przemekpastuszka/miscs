@@ -1,0 +1,6 @@
+sort D = struct d1 | d2;
+
+act getM, putM : D;
+proc ProtSpec = sum d:D.getM(d).putM(d).ProtSpec;
+
+init ProtSpec;

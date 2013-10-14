@@ -1,0 +1,15 @@
+Przemysław Pastuszka
+Kurs pracy w systemie Linux - pracownia nr B
+
+zad 1)
+Linia opcji dla skryptu powinna wygladac tak:
+plik_danych przedzial_czasu liczba_kolumn_wartosci nr_kolumny1 nr_kolumny2...
+gdzie przedzial_czasu jest postaci '["%Y-%b-%d %H:%M:%S":"%Y-%b-%d %H:%M:%S"]'
+Przyklad: ./zad1.sh weather.data '["2011-Jan-05 20:00:00":"2011-Jan-08 20:00:00"]' 3 4 5 6
+
+zad 2)
+W pierwszym skrypcie wystarczy zmienic "set terminal png" na "set terminal postscript".
+Po wygenerowaniu odpowiednich plikow tym skryptem mam do dyspozycji 3 skrypty kompozycyjne:
+2in1, 4in1 oraz 6in1 (w załaczniku przesyłam jeden z nich - pozostałe sa niemal identyczne).
+Przyklad uzycia: ./4in1.sh out1.ps out2.ps out3.ps out4.ps
+Generuje plik result.pdf (o ile zainstalowano program ps2pdf) 

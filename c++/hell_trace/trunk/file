@@ -1,0 +1,10 @@
+ImageLoader IL
+{
+	filename s;
+}
+
+ImageSaver IS
+{
+	input buffer IL;
+	filename name;
+}

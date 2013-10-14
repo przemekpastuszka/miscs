@@ -1,0 +1,17 @@
+C:\Documenty\QuintaEssentia\QuintaEssentia\bin\x86\Debug\QuintaEssentia.exe.config
+C:\Documenty\QuintaEssentia\QuintaEssentia\bin\x86\Debug\QuintaEssentia.exe
+C:\Documenty\QuintaEssentia\QuintaEssentia\bin\x86\Debug\QuintaEssentia.pdb
+C:\Documenty\QuintaEssentia\QuintaEssentia\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documenty\QuintaEssentia\QuintaEssentia\obj\x86\Debug\QuintaEssentia.CameraForm.resources
+C:\Documenty\QuintaEssentia\QuintaEssentia\obj\x86\Debug\QuintaEssentia.EditorForm.resources
+C:\Documenty\QuintaEssentia\QuintaEssentia\obj\x86\Debug\QuintaEssentia.FormAtLoad.resources
+C:\Documenty\QuintaEssentia\QuintaEssentia\obj\x86\Debug\QuintaEssentia.LightForm.resources
+C:\Documenty\QuintaEssentia\QuintaEssentia\obj\x86\Debug\QuintaEssentia.MainTerrainForm.resources
+C:\Documenty\QuintaEssentia\QuintaEssentia\obj\x86\Debug\QuintaEssentia.TerrainForm.resources
+C:\Documenty\QuintaEssentia\QuintaEssentia\obj\x86\Debug\QuintaEssentia.TerrainPicker.resources
+C:\Documenty\QuintaEssentia\QuintaEssentia\obj\x86\Debug\QuintaEssentia.NormalForm.resources
+C:\Documenty\QuintaEssentia\QuintaEssentia\obj\x86\Debug\QuintaEssentia.Properties.Resources.resources
+C:\Documenty\QuintaEssentia\QuintaEssentia\obj\x86\Debug\QuintaEssentia.csproj.GenerateResource.Cache
+C:\Documenty\QuintaEssentia\QuintaEssentia\obj\x86\Debug\QuintaEssentia.exe
+C:\Documenty\QuintaEssentia\QuintaEssentia\obj\x86\Debug\QuintaEssentia.pdb
+C:\Documenty\QuintaEssentia\QuintaEssentia\obj\x86\Debug\QuintaEssentia.SkyForm.resources

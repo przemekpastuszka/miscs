@@ -1,0 +1,25 @@
+sort D = struct d1;
+F = struct d(mess:D)|empty;
+Ack = Bool;
+% D=data
+% F=frame
+% Ack=acknowledgement
+act getM,putM: D; tF,gF,transmit,pF,rF,receive: F;
+% putM=put message, getM=get message,
+% tF=transmit frame, gF=get frame, pF=put frame, rF=receive frame;
+sA,gA,sendAck,pA,aA,recAck: Ack;
+% sA=send ack., gA=get ack., pA=put ack., aA=accept ack.
+proc Transmitter = sum dp:D.getM(dp).Transmitting(d(dp));
+Transmitting(f:F) = tF(f).sum a:Ack.aA(a).a->Transmitter<>tF(empty).aA(false).Transmitting(f);
+Medium = sum f:F.gF(f).(tau.pF(empty) + pF(f)).Medium
+	+ sum a:Ack.gA(a).(tau.pA(false) + pA(a)).Medium;
+ReceiveNew = sum f:F. rF(f).
+	(f!=empty)->putM(mess(f)).sA(true).ReceiveNew<>sA(false).ReceiveOld;
+ReceiveOld = sum f:F. rF(f).
+	((f!=empty)->sA(true)<>sA(false)).ReceiveNew;
+init 
+%hide({transmit, receive, sendAck, recAck}, 
+     allow({getM,putM,transmit,receive,sendAck,recAck}, comm({tF|gF->transmit,pF|rF->receive,sA|gA->sendAck,pA|aA->recAck},
+	Transmitter||Medium||ReceiveNew
+%	)
+)) ;
