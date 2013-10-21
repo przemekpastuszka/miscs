@@ -1,11 +1,7 @@
 function [error, grad] = cross_entropy(vec, IN, OUT)
-    error = compute_error(IN, OUT, vec);
-    grad = numerical_gradient(@(x) compute_error(IN, OUT, x), vec);
+    [W_1, W_2, bias_1, bias_2] = decode_theta(vec);
+    [L_2, ~, L_1, ~] = two_layer_single(IN, W_1, W_2, bias_1, bias_2, @tanh, @softmax);
     
-function error = compute_error(IN, OUT, vec)
-    n = size(IN, 1);
-    error = 0;
-    for i = 1:n
-        result = two_layer_single(IN(i,:)', vec, @tanh, @softmax);
-        error = error - log(norm(result.*OUT(i,:)', 1));
-    end
+    error = -sum(log(sum(L_2.*OUT)));
+    grad_a_2 = L_2 - OUT;
+    grad = compute_gradient(IN, L_1, W_2, grad_a_2);
