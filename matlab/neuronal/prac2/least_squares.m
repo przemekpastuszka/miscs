@@ -1,11 +1,16 @@
 function [error, grad] = least_squares(vec, IN, OUT)
-    error = compute_error(IN, OUT, vec);
-    grad = numerical_gradient(@(x) compute_error(IN, OUT, x), vec);
+    m = size(OUT, 2);
+    [W_1, W_2, bias_1, bias_2] = decode_theta(vec);
+    [L_2, A_2, L_1, A_1] = two_layer_single(IN, W_1, W_2, bias_1, bias_2, @tanh, @tanh);
     
-function error = compute_error(IN, OUT, vec)
-    n = size(IN, 1);
-    error = 0;
-    for i = 1:n
-        result = two_layer_single(IN(i,:)', vec, @tanh, @tanh);
-        error = error + norm((result - OUT(i,:)').^2, 1);
-    end
+    error = sum(sum((L_2 - OUT).^2)) / (2*m);
+    
+    grad_a_2 = (A_2 - OUT) ./ m;
+    grad_w_2 = grad_a_2 * L_1';
+    grad_bias_2 = sum(grad_a_2')';
+    grad_l_1 = W_2' * grad_a_2;
+    grad_a_1 = grad_l_1 - grad_l_1.*L_1.^2;
+    grad_w_1 = grad_a_1 * IN';
+    grad_bias_1 = sum(grad_a_1')';
+    grad = encode_theta(grad_w_1, grad_w_2, grad_bias_1, grad_bias_2);
+    

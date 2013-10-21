@@ -1,5 +1,5 @@
 function iris()
-    addpath('/home/przemek/code/matlab/neuronal/prac2/minFunc')
+    addpath(genpath('/home/przemek/code/matlab/neuronal/prac2/minFunc'))
     load fisheriris;
     meas_shifted = bsxfun(@minus, meas, min(meas));
     meas_normalized = bsxfun(@rdivide, meas_shifted, max(meas_shifted)).*2.-1;
@@ -10,7 +10,5 @@ function iris()
     
     n = 2;
     vec = 0.6 * rand(8 * n + 3, 1) - 0.3;
-    [res, f] = minFunc(@cross_entropy, vec, [], meas_normalized, expected_output)
+    [arg, val] = minFunc(@least_squares, vec, [], meas_normalized', expected_output')
 
-    function vec = encode(W_1, W_2, bias_1, bias_2)
-        vec = [W_1(:); W_2(:); bias_1; bias_2];
