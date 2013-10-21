@@ -1,4 +1,4 @@
-function [error, grad] = least_squares(vec, IN, OUT)
+function [error, grad, L_2] = least_squares(vec, IN, OUT)
     m = size(OUT, 2);
     [W_1, W_2, bias_1, bias_2] = decode_theta(vec);
     [L_2, A_2, L_1, ~] = two_layer_single(IN, W_1, W_2, bias_1, bias_2, @tanh, @tanh);
